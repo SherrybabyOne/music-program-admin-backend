@@ -20,7 +20,6 @@ app.use(koaBody({
 }))
 
 app.use(async (ctx, next) => {
-  console.log('全局中间件')
   ctx.state.env = ENV
   await next()
 })
