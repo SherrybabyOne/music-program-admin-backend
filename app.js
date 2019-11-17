@@ -1,6 +1,7 @@
 const Koa = require('koa')
 const Router = require('koa-router')
 const cors = require('koa2-cors')
+const koaBody = require('koa-body')
 
 const app = new Koa()
 const router = new Router()
@@ -11,6 +12,11 @@ const ENV = 'clothes-94er3'
 app.use(cors({
   origin: ['http://localhost:9528'],
   credentials: true
+}))
+
+// 接收post参数解析
+app.use(koaBody({
+  multipart: true
 }))
 
 app.use(async (ctx, next) => {
